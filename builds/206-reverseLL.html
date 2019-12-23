@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+     <body>
+        <section class="layout-hero d-flex align-items-center text-light text-center">
+        <img src="images/206-Reverse-LL.gif" >
+        <h3> 206-reversing Singly Linked list using Iteration</h3>
+        <p class="layout-hero d-flex align-items-center text-light text-center">
+       <h3>
+
+       <br> Reverse a singly linked list 
+<br>
+       <br> Example:
+       <br> 
+       <br> Input: 1->2->3->4->5->NULL
+       <br> Output: 5->4->3->2->1->NULL
+    
+ 
+       </h3>
+
+       <pre>
+        Solution:
+        public ListNode reverseList(ListNode head) {
+            ListNode prev = null;
+            ListNode curr = head;
+            while(curr!=null){
+                ListNode nextTemp = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = nextTemp;
+
+
+            }
+            return prev;
+        }
+
+    
+  
+       </pre>
+     
+        
+      </section>
+
+      <a class="nav-item nav-link" href="index.html"><h4 align="center">Back</h4></a>
+    </body>
+
+    </html>
