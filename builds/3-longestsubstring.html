@@ -23,27 +23,30 @@
           <br>  Output: 3
           <br>  Explanation: The answer is "wke", with the length of 3. 
           <br>               Note that the answer must be a substring, "pwke" is a subsequence and not a substring.</h3>
-        <p class="layout-hero d-flex align-items-center text-light text-center">
-          <h3 align="center">
-          <br>    public class Solution {
-          <br>      public int lengthOfLongestSubstring(String s) {
-          <br>          int n = s.length(), ans = 0;
-          <br>          Map<Character, Integer> map = new HashMap<>(); // current index of character
-          <br>          // try to extend the range [i, j]
-          <br>          for (int j = 0, i = 0; j < n; j++) {
-          <br>              if (map.containsKey(s.charAt(j))) {
-          <br>                  i = Math.max(map.get(s.charAt(j)), i);
-          <br>              }
-          <br>              ans = Math.max(ans, j - i + 1);
-          <br>              map.put(s.charAt(j), j + 1);
-          <br>          }
-          <br>          return ans;
-          <br>      }
-          <br>  }
-
-
-          </h3>
-        </p>
+       
+          <pre>
+        <br>    Solution:
+        <br>    public class Solution {
+        <br>      public int lengthOfLongestSubstring(String s) {
+        <br>          int n = s.length();
+        <br>          Set<Character> set = new HashSet<>();
+        <br>          int ans = 0, i = 0, j = 0;
+        <br>          while (i < n && j < n) {
+        <br>              // try to extend the range [i, j]
+        <br>              if (!set.contains(s.charAt(j))){
+        <br>                  set.add(s.charAt(j++));
+        <br>                  ans = Math.max(ans, j - i);
+        <br>              }
+        <br>              else {
+        <br>                  set.remove(s.charAt(i++));
+        <br>              }
+        <br>          }
+        <br>          return ans;
+        <br>      }
+        <br>  }
+        
+      
+           </pre>
       </section>
 
       <a class="nav-item nav-link" href="index.html"><h4 align="center">Back</h4></a>
