@@ -6,25 +6,56 @@
         <img src="images/2-addtwonum.gif" >
         <h3>Add two num</h3>
         <pre>
-      <br>    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-      <br>      ListNode dummyHead = new ListNode(0);
-      <br>      ListNode p = l1, q = l2, curr = dummyHead;
-      <br>      int carry = 0;
-      <br>      while (p != null || q != null) {
-      <br>          int x = (p != null) ? p.val : 0;
-      <br>          int y = (q != null) ? q.val : 0;
-      <br>          int sum = carry + x + y;
-      <br>          carry = sum / 10;
-      <br>          curr.next = new ListNode(sum % 10);
-      <br>          curr = curr.next;
-      <br>          if (p != null) p = p.next;
-      <br>          if (q != null) q = q.next;
-      <br>      }
-      <br>      if (carry > 0) {
-      <br>          curr.next = new ListNode(carry);
-      <br>      }
-      <br>      return dummyHead.next;
-      <br>  }
+
+          public class ListNode{
+            ListNode next;
+            ListNode(){}
+            ListNode (int val) {this.val=val;}
+            ListNode(int val, ListNode next){
+              this.val=val; 
+              this.next=next;
+            }
+          }
+
+          class solution{
+            
+            public ListNode addTwoNumbers(ListNode l1, ListNode l2){
+              ListNode dummyHead = new ListNode(0);
+
+              ListNode p = l1, q= l2, curr= dummyHead;
+
+              int carry = 0;
+
+              while(p!= null || q!= null){
+                int x = (p != null) ? p.val : 0;
+                int y = (q != null) ? q.val : 0;
+
+                int sum= carry + x + y;
+
+                carry= sum/10;
+
+                curr.next = new ListNode(sum % 10);
+
+                curr = curr.next;
+
+                if(p != null) p = p.next;
+                if(q != null) q = q.next;
+              }
+
+              if(carry > 0){
+                curr.next = new ListNode(carry);
+              }
+
+              return dummyHead.next;
+
+
+            }
+          }
+
+
+
+
+      
         </pre>
       </section>
 
